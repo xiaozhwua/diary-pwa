@@ -1,0 +1,346 @@
+/* ===============================
+   Core Variables
+================================ */
+:root{
+  --blue:#8b7bb8;
+  --blue-soft:#eaf0ff;
+  --orange:#f08b54;
+  --pink:#fde1d2;
+  --white:#fafafa;
+  --ink:#4a3f3a;
+  --muted:#a49790;
+  --line:rgba(160,140,130,.2);
+  --shadow:0 20px 50px rgba(120,90,70,.2);
+  --radius:22px;
+}
+
+/* ===============================
+   Global Reset / Base
+================================ */
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;
+  background:
+    radial-gradient(
+      900px 420px at 12% 10%,
+      rgba(240,139,84,.28),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 420px at 85% 5%,
+      rgba(234,240,255,.75),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #fff5ee,
+      #fde6d8
+    );
+}
+
+.wrap{
+  max-width:920px;
+  margin:0 auto;
+  padding:28px 16px 64px;
+}
+
+/* ===============================
+   Diary
+================================ */
+.diary{
+  padding: 28px 24px 24px;
+}
+
+.diary::before{
+  content:"";
+  position:absolute;
+  left:28px;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:linear-gradient(
+    180deg,
+    transparent,
+    var(--orange),
+    transparent
+  );
+  opacity:.45;
+}
+
+.diaryTitle{
+  padding-left:40px;
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.diaryContent{
+  padding-left:40px;
+  font-size:14px;
+  line-height:1.8;
+  white-space:pre-wrap;
+  color:var(--ink);
+}
+
+/* ===============================
+   Actions / Buttons
+================================ */
+.diaryActions{
+  padding:14px 24px;
+  display:flex;
+  gap:12px;
+  border-top:1px solid var(--line);
+}
+
+.btn{
+  padding:12px 16px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:var(--blue-soft);
+  cursor:pointer;
+  font-size:13px;
+}
+
+.btn.primary{
+  background:rgba(255,138,61,.2);
+  border-color:rgba(255,138,61,.45);
+}
+
+/* ===============================
+   Month List
+================================ */
+.monthList{
+  padding:12px 24px 22px;
+}
+
+.monthItem{
+  display:flex;
+  gap:12px;
+  font-size:13px;
+  padding:6px 0;
+}
+
+.monthItem .date{
+  width:48px;
+  color:var(--ink);
+}
+
+.monthItem .title{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* ===============================
+   Search / Text Pages
+================================ */
+.searchBox{
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.searchRow{
+  display:flex;
+  gap:12px;
+}
+
+.searchRow input{
+  flex:1;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid var(--line);
+}
+
+.textPage{
+  padding:28px;
+  font-size:14px;
+  line-height:1.8;
+  color:var(--muted);
+}
+
+.support .btn{
+  text-align:left;
+  margin-top:10px;
+}
+
+/* ===============================
+   Layout / Card
+================================ */
+.card{
+  background:var(--white);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+/* ===============================
+   Header
+================================ */
+.header{
+  background:var(--white);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  padding:22px;
+  display:flex;
+  gap:16px;
+  align-items:center;
+  margin-bottom:16px;
+}
+
+.avatar{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  border:2px dashed var(--orange);
+  background:
+    radial-gradient(circle at 30% 30%, var(--pink), transparent 60%),
+    var(--blue-soft);
+  display:grid;
+  place-items:center;
+  color:var(--blue);
+  font-size:22px;
+}
+
+.headerText h1{
+  margin:0;
+  font-size:20px;
+}
+
+.headerText p{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ===============================
+   Tabs
+================================ */
+.tabs{
+  display:flex;
+  border-bottom:1px solid var(--line);
+}
+
+.tab{
+  flex:1;
+  padding:14px;
+  text-align:center;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.tab.active{
+  color:var(--blue);
+  font-weight:600;
+  border-bottom:3px solid var(--orange);
+}
+
+/* ===============================
+   Pages
+================================ */
+.page{ display:none; }
+.page.active{ display:block; }
+
+/* ===============================
+   Calendar
+================================ */
+.calendar{
+  padding:22px;
+  border-bottom:1px solid var(--line);
+}
+
+.calHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:14px;
+}
+
+.calTitle .month{
+  font-size:13px;
+  letter-spacing:.14em;
+  color:var(--muted);
+}
+
+.calTitle .year{
+  font-size:30px;
+  font-weight:800;
+}
+
+.bigDate{
+  font-size:56px;
+  font-weight:800;
+  color:var(--blue);
+}
+
+.week{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+  margin-bottom:8px;
+}
+
+.week span{
+  text-align:center;
+  font-size:12px;
+  padding:6px 0;
+  border-radius:10px;
+  background:var(--blue-soft);
+  color:var(--blue);
+}
+
+.days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+}
+
+.day{
+  height:46px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+}
+
+.day.dim{ opacity:.35; }
+
+.day.today{
+  background:rgba(255,138,61,.18);
+  border-color:rgba(255,138,61,.45);
+  font-weight:600;
+}
+
+
+
+
+
+/* ===============================
+   Left Decorative Line (Shared)
+================================ */
+
+.withLeftLine{
+  position: relative;
+  padding: 28px 24px 24px;
+}
+
+.withLeftLine::before{
+  content:"";
+  position:absolute;
+  left:28px;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:linear-gradient(
+    180deg,
+    transparent,
+    var(--orange),
+    transparent
+  );
+  opacity:.45;
+}
